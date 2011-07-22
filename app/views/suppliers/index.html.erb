@@ -14,7 +14,7 @@
 <% @suppliers.each do |supplier| %>
   <tr>
     <td><%= supplier.name %></td>
-    <td><%= supplier.city.city_name %></td>
+    <td><%= supplier.city.name %></td>
     <td><%= supplier.city.state %></td>
     <td><%= supplier.description %></td>
     <td><%= link_to 'Show', supplier %></td>
