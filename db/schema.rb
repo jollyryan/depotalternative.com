@@ -10,13 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110710021521) do
+ActiveRecord::Schema.define(:version => 20110722200858) do
+
+  create_table "cities", :force => true do |t|
+    t.string   "city_name"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "suppliers", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
+    t.string   "zip"
+    t.string   "phone_number"
+    t.string   "email"
+    t.integer  "city_id"
   end
 
 end
