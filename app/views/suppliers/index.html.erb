@@ -1,8 +1,10 @@
-<h1>Listing suppliers - Montgomery/Alabama</h1>
+<h1>Listing suppliers - All Suppliers</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Name
+    <th>City</th>
+    <th>State</th>
     <th>Description</th>
     <th></th>
     <th></th>
@@ -10,8 +12,11 @@
   </tr>
 
 <% @suppliers.each do |supplier| %>
+  <% @city = City.find(supplier.city_id) %>
   <tr>
     <td><%= supplier.name %></td>
+    <td><%= @city.city_name %></td>
+    <td><%= @city.state %></td>
     <td><%= supplier.description %></td>
     <td><%= link_to 'Show', supplier %></td>
     <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
