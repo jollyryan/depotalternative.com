@@ -41,9 +41,10 @@ class SuppliersController < ApplicationController
   # POST /suppliers.xml
   def create
     @supplier = Supplier.new(params[:supplier])
+    @city = City.find(params[:city_id])
 
     respond_to do |format|
-      if @supplier.save
+      if @city.suppliers << @supplier
         format.html { redirect_to(@supplier, :notice => 'Supplier was successfully created.') }
         format.xml  { render :xml => @supplier, :status => :created, :location => @supplier }
       else
@@ -51,6 +52,7 @@ class SuppliersController < ApplicationController
         format.xml  { render :xml => @supplier.errors, :status => :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /suppliers/1
