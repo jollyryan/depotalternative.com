@@ -69,6 +69,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] polyglot (v0.3.1, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/polyglot-0.3.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] sqlite3-ruby (v1.3.3, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/sqlite3-ruby-1.3.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] activerecord (v3.0.9, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.0.9)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] dynamic_form (v1.1.4, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/dynamic_form-1.1.4)" level="application" />
   </component>
 </module>
 
