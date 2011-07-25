@@ -13,13 +13,17 @@ pre {
   font-size: 11px;
 }
 
+h3,h4 {margin: 0; padding: 0; display: inline;}
+
 a { 
 	color: #4183C4;
 	font-size: 12px;
 	text-decoration: none; 
 }
 a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a:hover { background-color:#FFF5CC; }
+
+ol, ul { list-style: none; margin: 0; padding: 0;}
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -60,6 +64,10 @@ div.field, div.actions {
   list-style: square;
 }
 
+#container {
+	margin: 0 auto;
+	width: 800px;
+}
 
 #header {
 	background-color: #EFEFEF;
@@ -100,3 +108,94 @@ ul#nav li {
 ul#nav li a {font-size: 16px;}
 
 #login_user_status {float: right;}
+
+#listings {
+	border-top: 1px solid #E5E5E5;
+	margin-top: 28px;
+}
+
+#listings li {
+	border-bottom: 1px solid #E5E5E5;
+}
+
+#listings li > a {
+	display: block;
+	overflow: hidden;
+	padding: 17px 11px;
+	color: #222;
+	padding: 16px 13px;
+	-moz-transition: all .1s linear;
+	-webkit-transition: all .1s linear;
+	-o-transition: all .1s linear;
+	-ms-transition: all .1s linear;
+	-khtml-transition: all .1s linear;
+	transition: all .1s linear;
+}
+
+#listings li > a > span {
+	min-height: 37px;
+	display: block;
+	position: relative;
+}
+
+#listings li .role {
+	float: left;
+	width: 350px;
+	margin-right: 12px;
+	position: relative;
+	top: -3px;
+}
+
+#listings li .role h3 {
+	display: block;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1;
+	margin-bottom: 4px;
+	height: 18px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	position: static;
+	top: auto;
+	left: auto;
+	width: auto;
+}
+
+#listings li .role > span {
+	padding-left: .5em;
+	color: #888;
+	display: inline;
+}
+
+#listings li .role h4 {
+	font-weight: 600;
+	color: #222;
+	position: static;
+	top: auto;
+	left: auto;
+	max-width: none;
+	white-space: normal;
+	overflow: visible;
+}
+
+#listings li .location {
+	float: left;
+	margin-top: 7px;
+	width: 145px;
+	height: 16px;
+	background: url("/img/map-marker-light.png") no-repeat 0 50%;
+	padding-left: 16px;
+	position: static;
+	top: auto;
+	left: auto;
+	text-align: left;
+	max-width: none;
+	white-space: normal;
+	overflow: visible;
+}
+
+#listings li .meta {
+	float: right;
+	text-align: right;
+}
