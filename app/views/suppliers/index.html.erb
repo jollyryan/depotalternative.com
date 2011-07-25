@@ -12,11 +12,10 @@
   </tr>
 
 <% @suppliers.each do |supplier| %>
-  <% @city = City.find(supplier.city_id) %>
   <tr>
     <td><%= supplier.name %></td>
-    <td><%= @city.city_name %></td>
-    <td><%= @city.state %></td>
+    <td><%= supplier.city.name %></td>
+    <td><%= supplier.city.state %></td>
     <td><%= supplier.description %></td>
     <td><%= link_to 'Show', supplier %></td>
     <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
