@@ -1,28 +1,30 @@
 <h1>Listing suppliers - All Suppliers</h1>
 
-<table>
-  <tr>
-    <th>Name
-    <th>City</th>
-    <th>State</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="suppliers_wrapper">
 
-<% @suppliers.each do |supplier| %>
-  <tr>
-    <td><%= supplier.name %></td>
-    <td><%= supplier.city.city_name %></td>
-    <td><%= supplier.city.state %></td>
-    <td><%= supplier.description %></td>
-    <td><%= link_to 'Show', supplier %></td>
-    <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
-    <td><%= link_to 'Destroy', supplier, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+	<ul id="listings">
+
+	<% @suppliers.each do |supplier| %>
+	<li>
+		<a href="#">
+			<span>
+	    		<div class="role">
+					<h3><%= supplier.name %></h3>
+					<h4>Flooring</h4> <span><%= supplier.description %></span>
+				</div>
+				<span class="location">
+					<%= supplier.city.city_name %>
+	    			<%= supplier.city.state %>
+				</span>
+				<div class="meta"><%= supplier.created_at.to_date.to_s(:short) %></div>
+			</span>
+		</a>
+	</li>
+	<% end %>
+	
+	</ul>
+
+</div>
 
 <br />
 
