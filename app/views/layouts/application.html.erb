@@ -11,12 +11,16 @@
 	<div id="header">
 		<%= render :partial => 'layouts/header' %>
 	</div>
-    <div id="container">
-		<div class="wrapper">
-			<% flash.each do |name, msg| %>
-	       		<%= content_tag :div, msg, :id => "flash_#{name}" %>
-	     	<% end %>
-	     	<%= yield %>
+	<div id="content">
+    	<div id="container">
+			<div class="inner">
+				<div class="wrapper">
+					<% flash.each do |name, msg| %>
+		       			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		     		<% end %>
+		     		<%= yield %>
+				</div>
+			</div>
 		</div>
 	</div>
   </body>

@@ -1,4 +1,9 @@
-<h1>Listing suppliers - All Suppliers</h1>
+<div class="supplier_filter search">
+	<ul class="search_bar">
+		<li>Showing all suppliers in </li>
+		<li class="menu"><%= link_to "  Any City", "#" %></li>
+	</ul>
+</div>
 
 <div id="suppliers_wrapper">
 
@@ -13,8 +18,7 @@
 					<h4>Flooring</h4> <span><%= supplier.description %></span>
 				</div>
 				<span class="location">
-					<%= supplier.city.city_name %>
-	    			<%= supplier.city.state %>
+					<%= supplier.city.city_name %>, <%= supplier.city.state %>
 				</span>
 				<div class="meta"><%= supplier.created_at.to_date.to_s(:short) %></div>
 			</span>
