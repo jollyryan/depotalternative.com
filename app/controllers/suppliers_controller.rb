@@ -59,9 +59,10 @@ class SuppliersController < ApplicationController
   # PUT /suppliers/1.xml
   def update
     @supplier = Supplier.find(params[:id])
+    @city = City.find(params[:city_id])
 
     respond_to do |format|
-      if @supplier.update_attributes(params[:supplier])
+      if @supplier.update_attributes(params[:supplier]) && @city.suppliers <<@supplier
         format.html { redirect_to(@supplier, :notice => 'Supplier was successfully updated.') }
         format.xml  { head :ok }
       else
