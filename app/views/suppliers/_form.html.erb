@@ -24,7 +24,7 @@
 
   <div class="field">
     <%= f.label :city_id %><br />
-    <%= select_tag :city_id, options_from_collection_for_select(City.all, :id, :city_name, @supplier.city.id)%>
+    <%= f.collection_select :city_id, City.all, :id, :city_name%>
   </div>
 
 
