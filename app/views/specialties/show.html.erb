@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<br>
+<h2>Suppliers with specialty of <%= @specialty.name %></h2>
+<% if @specialty.suppliers.size == 0 %>
+    <p>
+    There are no suppliers for this specialty.
+    </p>
+<% else %>
+    <table>
+        <tr>
+        <th>Name
+        <th>City</th>
+        <th>State</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        </tr>
+
+        <% @specialty.suppliers.each do |supplier| %>
+          <tr>
+            <td><%= supplier.name %></td>
+            <td><%= supplier.description %></td>
+            <td><%= link_to 'Show', supplier %></td>
+            <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
+            <td><%= link_to 'Destroy', supplier, :confirm => 'Are you sure?', :method => :delete %></td>
+          </tr>
+        <% end %>
+    </table>
+<% end %>
+
+
+<%= link_to 'Edit', edit_specialty_path(@specialty) %> |
+<%= link_to 'Back', specialties_path %>
