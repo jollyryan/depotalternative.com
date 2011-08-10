@@ -10,11 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110722200858) do
+ActiveRecord::Schema.define(:version => 20110809022348) do
 
   create_table "cities", :force => true do |t|
     t.string   "city_name"
     t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "specialties", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +35,18 @@ ActiveRecord::Schema.define(:version => 20110722200858) do
     t.string   "phone_number"
     t.string   "email"
     t.integer  "city_id"
+    t.string   "uploaded_file_file_name"
+    t.string   "uploaded_file_content_type"
+    t.integer  "uploaded_file_file_size"
+    t.datetime "uploaded_file_updated_at"
+    t.integer  "specialty_id"
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.string   "local_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "supplier_id"
   end
 
 end

@@ -12,7 +12,19 @@
   <component name="GemRequirementsHolder" version="3">
     <requirement>
       <requirement>
+        <dependency name="aws-s3" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="mysql2" version="0.2.7" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="paperclip" version="2.3" bound="LATEST_IN_BRANCH" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -38,6 +50,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/.bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -70,6 +83,10 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] sqlite3-ruby (v1.3.3, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/sqlite3-ruby-1.3.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] activerecord (v3.0.9, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.0.9)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] dynamic_form (v1.1.4, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/dynamic_form-1.1.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] paperclip (v2.3.16, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/paperclip-2.3.16)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] aws-s3 (v0.6.2, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/aws-s3-0.6.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] xml-simple (v1.1.0, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/xml-simple-1.1.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cocaine (v0.1.0, /Users/davidboyd/.rvm/gems/ruby-1.9.2-p290/gems/cocaine-0.1.0)" level="application" />
   </component>
 </module>
 

@@ -3,6 +3,7 @@ Depotalternative::Application.routes.draw do
 
   resources :suppliers
   resources :cities
+  resources :specialties
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
