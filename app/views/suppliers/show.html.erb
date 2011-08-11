@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @supplier.name %>
-</p>
+<h2>  <%= @supplier.name %>   </h2>
+
 
 <p>
   <b>Address:</b>
@@ -21,8 +19,26 @@
 </p>
 
 <p>
+  <b>Specialty:</b>
+  <%= @supplier.specialty.name %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @supplier.description %>
+</p>
+
+
+<p>
+  <% if @supplier.uploaded_file_file_size != nil  %>
+    <br>Uploaded Image - Thumbnail Size<br>
+	<%= image_tag @supplier.uploaded_file.url(:thumbnail) %>
+    <br>Uploaded Image - Normal Size<br>
+    <%= image_tag @supplier.uploaded_file.url(:normal) %>
+  <% else %>
+    <br>Uploaded Image
+    No file has been uploaded.
+  <% end %>
 </p>
 
 

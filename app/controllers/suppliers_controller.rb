@@ -41,10 +41,12 @@ class SuppliersController < ApplicationController
   # POST /suppliers.xml
   def create
     @supplier = Supplier.new(params[:supplier])
-    @city = City.find(params[:city_id])
+    @specialty = Specialty.find(@supplier.specialty_id)
+    @city = City.find(@supplier.city_id)
+
 
     respond_to do |format|
-      if @city.suppliers << @supplier
+      if @city.suppliers << @supplier && @specialty.suppliers << @supplier
         format.html { redirect_to(@supplier, :notice => 'Supplier was successfully created.') }
         format.xml  { render :xml => @supplier, :status => :created, :location => @supplier }
       else
@@ -59,10 +61,11 @@ class SuppliersController < ApplicationController
   # PUT /suppliers/1.xml
   def update
     @supplier = Supplier.find(params[:id])
-    @city = City.find(params[:city_id])
+    @city = City.find(@supplier.city_id)
+    @specialty = Specialty.find(@supplier.specialty_id)
 
     respond_to do |format|
-      if @supplier.update_attributes(params[:supplier]) && @city.suppliers <<@supplier
+      if @supplier.update_attributes(params[:supplier]) #&& @city.suppliers << @supplier && @specialty.suppliers << @supplier
         format.html { redirect_to(@supplier, :notice => 'Supplier was successfully updated.') }
         format.xml  { head :ok }
       else

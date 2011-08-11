@@ -1,0 +1,11 @@
+development:  
+  access_key_id: AKIAIBCZ3I3LD75XI6ZA
+  secret_access_key: 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
+  
+staging:  
+  access_key_id: AKIAIBCZ3I3LD75XI6ZA
+  secret_access_key: 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
+  
+production:  
+  access_key_id: AKIAIBCZ3I3LD75XI6ZA
+  secret_access_key: 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
