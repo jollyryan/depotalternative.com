@@ -6,11 +6,18 @@
 		<ul id="nav">
 			<li><%= link_to 'Suppliers', suppliers_path %></li>
 			<li><%= link_to 'Cities', cities_path %></li>
-            <li><%= link_to 'Specialties', specialties_path %></li>
-			<li><%= link_to 'How it works', "#" %></li>
+		<% if user_signed_in? %>
+	        <li><%= link_to 'Specialties', specialties_path %></li>
+			<li><%= link_to 'How it works', "#" %></li>	
+		<% end %>
 		</ul>
 		<div id="login_user_status">
-			<%= link_to 'Sign in', "#" %> or <%= link_to 'Sign up', "#" %>
+			<% if user_signed_in? %>
+				<%= current_user.email %> | <%= link_to "Sign out", destroy_user_session_path %>
+				<% else %>
+				<em>Not Signed in.</em>
+				<%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %>
+			<% end %>
 		</div>
 	</div>
 </div>

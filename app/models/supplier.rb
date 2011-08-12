@@ -3,6 +3,7 @@ class Supplier < ActiveRecord::Base
 
   belongs_to :city
   belongs_to :specialty
+  belongs_to :user
 
   validates :name, :city_id, :specialty_id, :presence => true
 

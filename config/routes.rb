@@ -1,6 +1,8 @@
 Depotalternative::Application.routes.draw do
 
 
+  devise_for :users
+
   resources :suppliers
   resources :cities
   resources :specialties

@@ -194,6 +194,22 @@ div.search a {
 	top: -3px;
 }
 
+#listings li .type {
+	float: left;
+	margin-top: 8px;
+	width: auto;
+	height: 16px;
+	font-size: 10px;
+	position: static;
+	top: auto;
+	left: auto;
+	text-align: left;
+	max-width: none;
+	padding-right: 15px;
+	white-space: normal;
+	overflow: visible;
+}
+
 #listings li .role h3 {
 	display: block;
 	font-size: 16px;
@@ -211,7 +227,6 @@ div.search a {
 }
 
 #listings li .role > span {
-	padding-left: .5em;
 	color: #888;
 	display: inline;
 }

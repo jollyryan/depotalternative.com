@@ -1,6 +1,9 @@
 class SuppliersController < ApplicationController
   # GET /suppliers
   # GET /suppliers.xml
+  
+  before_filter :authenticate_user!, :except=>[:show, :index]
+  
   def index
     @suppliers = Supplier.all
 
@@ -24,7 +27,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers/new
   # GET /suppliers/new.xml
   def new
-    @supplier = Supplier.new
+    @supplier = current_user.suppliers.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +43,7 @@ class SuppliersController < ApplicationController
   # POST /suppliers
   # POST /suppliers.xml
   def create
-    @supplier = Supplier.new(params[:supplier])
+    @supplier = current_user.suppliers.new(params[:supplier])
     @specialty = Specialty.find(@supplier.specialty_id)
     @city = City.find(@supplier.city_id)
 
