@@ -1,12 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h2>  <%= @supplier.name %>   </h2>
+<div id="supplier_header">
+	<div class="name">
+		<div><h2><%= @supplier.name %></h2></div>
+		<div class="city_state"><%= @supplier.city.city_name %>, <%= @supplier.city.state %></div>
+	</div>
+	<div class="favorite">
+	<% if current_user %>
+		<%= link_to "Favorite", "#" %>
+	<% else %>
+		<%= link_to 'Sign in', new_user_session_path %> to Favorite
+	<% end %>
+	</div>
+</div>
 
+<div id="clear"></div>
 
-<p>
-  <b>Address:</b>
-  <%= @supplier.address %>
-</p>
+<p><%= @supplier.description %></p>
 
 <p>
   <b>Phone Number:</b>
@@ -24,15 +34,7 @@
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @supplier.description %>
-</p>
-
-
-<p>
   <% if @supplier.uploaded_file_file_size != nil  %>
-    <br>Uploaded Image - Thumbnail Size<br>
-	<%= image_tag @supplier.uploaded_file.url(:thumbnail) %>
     <br>Uploaded Image - Normal Size<br>
     <%= image_tag @supplier.uploaded_file.url(:normal) %>
   <% else %>

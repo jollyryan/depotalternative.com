@@ -1,5 +1,7 @@
 body { background-color: #fff; color: #333; }
 
+#clear{clear:left;}
+
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
@@ -13,7 +15,7 @@ pre {
   font-size: 11px;
 }
 
-h3,h4 {margin: 0; padding: 0; display: inline;}
+h2, h3,h4 {margin: 0; padding: 0; display: inline;}
 
 a { 
 	color: #DDD;
@@ -65,6 +67,9 @@ div.field, div.actions {
 }
 
 #content { background: white url("/images/pattern.gif") repeat-x; }
+
+#content a {-webkit-transition: color 0.2s linear; color: #3166C4; outline: none; text-decoration: none; }
+#content a:focus, a:hover {color: #379CFF;}
 
 #container {
 	background: transparent url("/images/container_large.png") no-repeat;
@@ -262,3 +267,21 @@ div.search a {
 	float: right;
 	text-align: right;
 }
+
+#supplier_header {
+	border-bottom: 1px solid #CCC; 
+	clear: left; 
+	margin-bottom: 25px; 
+	padding-bottom: 50px; 
+	width: 100%;
+}
+#supplier_header .name {float: left; width: auto;}
+#supplier_header .favorite {
+	background-image: url(../images/star.png);
+	background-repeat: no-repeat;
+	background-position: 14px center; 
+	float: right; 
+	padding: 5px 5px 5px 35px; 
+	width: auto;
+}
+#supplier_header .city_state{color: #CCC;}
