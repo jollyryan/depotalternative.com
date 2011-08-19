@@ -2,47 +2,47 @@
 
 <div id="supplier_header">
 	<div class="name">
-		<div><h2><%= @supplier.name %></h2></div>
+		<div><h2><%= @supplier.name %></h2> <%= link_to 'Edit', edit_supplier_path(@supplier) %></div>
 		<div class="city_state"><%= @supplier.city.city_name %>, <%= @supplier.city.state %></div>
 	</div>
-	<div class="favorite">
+	
 	<% if current_user %>
-		<%= link_to "Favorite", "#" %>
+		<div class="favorite"><%= link_to "Favorite", "#" %></div>
+		<div class="share"><%= link_to "Share", "#" %></div>
+		<div class="print"><%= link_to "Print", "#" %></div>			
 	<% else %>
-		<%= link_to 'Sign in', new_user_session_path %> to Favorite
+		<%= link_to 'Sign in', new_user_session_path %> for options
 	<% end %>
-	</div>
+
 </div>
 
 <div id="clear"></div>
 
-<p><%= @supplier.description %></p>
+<div id="supplier_body">
+	<div class="description"><%= @supplier.description %></div>
 
-<p>
-  <b>Phone Number:</b>
-  <%= @supplier.phone_number %>
-</p>
+	<div class="contact_info">
+		<h2>Get in touch</h2>
+		<% if current_user %>
+			<h3>Phone:  <%= @supplier.phone_number %></h3>
+			<h3>Email:  <%= mail_to @supplier.email %></h3>
+		<% else %>
+			<h3><%= link_to 'Sign in', new_user_session_path %></h3>
+		<% end %>
+	</div>
 
-<p>
-  <b>Email:</b>
-  <%= @supplier.email %>
-</p>
+	<div id="clear"></div>
+	
+	<p>
+	  <b>Specialty:</b>
+	  <%= @supplier.specialty.name %>
+	</p>
 
-<p>
-  <b>Specialty:</b>
-  <%= @supplier.specialty.name %>
-</p>
-
-<p>
-  <% if @supplier.uploaded_file_file_size != nil  %>
-    <br>Uploaded Image - Normal Size<br>
-    <%= image_tag @supplier.uploaded_file.url(:normal) %>
-  <% else %>
-    <br>Uploaded Image
-    No file has been uploaded.
-  <% end %>
-</p>
-
-
-<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
-<%= link_to 'Back', suppliers_path %>
+	<p>
+	  <% if @supplier.uploaded_file_file_size != nil  %>
+	    <div class="image"><%= image_tag @supplier.uploaded_file.url(:normal) %></div>
+	  <% else %>
+	    This supplier hasn't uploaded any work.
+	  <% end %>
+	</p>
+</div>
