@@ -87,6 +87,45 @@ div.field, div.actions {
 	padding: 28px;
 }
 
+#containter > #footer {
+	clear: both;
+	background-color: transparent;
+	color: #888;
+}
+
+#container > #footer #footer_wrapper {
+	border-top: 1px solid #ECECEC;
+	padding: 35px 40px;
+	margin: 0 auto;
+}
+
+#container > #footer #footer_wrapper ul {
+	width: 100%;
+}
+
+#container > #footer #footer_wrapper ul li {
+	float: left;
+	margin-right: 15px;
+	font-size: 11px;
+}
+
+#container > #footer #footer_wrapper h4 {
+	display: block;
+	width: 200px;
+	height: 20px;
+	margin: 40px 0 10px;
+}
+
+#container > #footer #footer_wrapper ul li a {
+	clear: left;
+	font-weight: 200;
+	color: #888;
+}
+
+#container > #footer p { font-size: 11px; }
+
+#container > #footer #footer_wrapper ul li a:hover, #container > #footer #footer-wrapper ul li a:focus { color: #222; }
+
 #header {
 	background-color: #292929;
 
@@ -166,7 +205,7 @@ div.search a {
 }
 
 #listings li {
-	border-bottom: 1px solid #E5E5E5;
+	border-bottom: 2px solid #E5E5E5;
 }
 
 #listings li > a {
@@ -182,6 +221,8 @@ div.search a {
 	-khtml-transition: all .1s linear;
 	transition: all .1s linear;
 }
+
+.odd { background: #f5f5f5; }
 
 #listings li > a:hover { background-color: #FFD673;}
 

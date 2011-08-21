@@ -10,13 +10,13 @@
 	<ul id="listings">
 
 	<% @suppliers.each do |supplier| %>
-	<li>
+	<li class="<%= cycle('even', 'odd') %>">
 		<%= link_to supplier do %>
 			<span>
 				<div class="type"><%= supplier.specialty.name %></div>
 	    		<div class="role">
 					<h3><%= supplier.name %></h3>
-					 <span><%= supplier.description %></span>
+					 <span><%= truncate(supplier.description, :length => 40) %></span>
 				</div>
 				<span class="location">
 
