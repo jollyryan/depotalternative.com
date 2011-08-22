@@ -6,6 +6,7 @@ gem 'rake'
 gem 'paperclip', "~> 2.3"
 gem 'aws-s3'
 gem 'devise', '1.1.5'
+gem "cancan"
 
 
 # Bundle edge Rails instead:

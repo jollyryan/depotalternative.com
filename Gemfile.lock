@@ -35,6 +35,7 @@ GEM
       xml-simple
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cancan (1.6.5)
     cocaine (0.1.0)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
@@ -93,6 +94,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
+  cancan
   devise (= 1.1.5)
   mysql2 (= 0.2.6)
   paperclip (~> 2.3)
