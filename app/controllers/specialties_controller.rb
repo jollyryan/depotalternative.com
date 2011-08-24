@@ -3,6 +3,7 @@ class SpecialtiesController < ApplicationController
   # GET /specialties.xml
   def index
     @specialties = Specialty.all
+    @specialty = Specialty.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -35,9 +36,11 @@ class SpecialtiesController < ApplicationController
       if @specialty.save
         format.html { redirect_to(@specialty, :notice => 'Specialty was successfully created.') }
         format.xml  { render :xml => @specialty, :status => :created, :location => @specialty }
+        format.js 
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @specialty.errors, :status => :unprocessable_entity }
+        format.js 
       end
     end
   end
@@ -67,6 +70,7 @@ class SpecialtiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(specialties_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end

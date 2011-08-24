@@ -1,0 +1,7 @@
+<% for specialty in specialties %>
+  <tr id="specialty_<%= specialty.id %>">
+    <td><%= specialty.name %></td>
+    <td><%= link_to 'Edit', edit_specialty_path(specialty) %></td>
+    <td><%= link_to 'Destroy', specialty, :confirm => 'Are you sure?', :method => :delete, :remote=>true, :class=>'delete_post' %></td>
+  </tr>
+<% end %>
