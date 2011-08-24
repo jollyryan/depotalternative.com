@@ -10,17 +10,6 @@ class SpecialtiesController < ApplicationController
     end
   end
 
-  # GET /specialties/1
-  # GET /specialties/1.xml
-  def show
-    @specialty = Specialty.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @specialty }
-    end
-  end
-
   # GET /specialties/new
   # GET /specialties/new.xml
   def new
