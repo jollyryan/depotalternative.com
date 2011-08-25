@@ -99,7 +99,7 @@ DEPENDENCIES
   aws-s3
   cancan
   devise (= 1.1.5)
-  jquery-rails (>= 1.0.12)
+  jquery-rails
   mysql2 (= 0.2.6)
   paperclip (~> 2.3)
   rails (= 3.0.9)
