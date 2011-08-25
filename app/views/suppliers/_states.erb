@@ -1,4 +1,5 @@
 <%= select_tag(:state, options_for_select([
+    ['--Select a State--', '--Select a State--'],
     ['Alabama', 'Alabama'],
     ['Alaska', 'Alaska'],
     ['Arizona', 'Arizona'],
@@ -49,5 +50,4 @@
     ['West Virginia', 'West Virginia'],
     ['Wisconsin', 'Wisconsin'],
     ['Wyoming', 'Wyoming',]
-
-                                          ]))%>
+    ], :selected => params[:state]), :id => 'state_search', :onchange => "$('#suppliers_search').submit()" )%>

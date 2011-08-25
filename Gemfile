@@ -6,6 +6,8 @@ gem 'rake'
 gem 'paperclip', "~> 2.3"
 gem 'aws-s3'
 gem 'devise', '1.1.5'
+gem 'jquery-rails'
+gem 'will_paginate', '3.0.pre4'
 
 
 # Bundle edge Rails instead:

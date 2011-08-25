@@ -1,0 +1,24 @@
+<ul id="listings">
+<% if @suppliers.count > 0 %>
+    <% @suppliers.each do |supplier| %>
+    <li class="<%= cycle('even', 'odd') %>">
+        <%= link_to supplier do %>
+            <span>
+                <div class="type"><%= supplier.specialty.name %></div>
+                <div class="role">
+                    <h3><%= supplier.name %></h3>
+                     <span><%= truncate(supplier.description, :length => 40) %></span>
+                </div>
+                <span class="location">
+
+                    <%= supplier.city.city_name %>, <%= supplier.city.state %>
+                </span>
+                <div class="meta"><%= supplier.created_at.to_date.to_s(:short) %></div>
+            </span>
+        <% end %>
+    </li>
+    <% end %>
+<% end %>
+
+</ul>
+<%= will_paginate @suppliers %>
