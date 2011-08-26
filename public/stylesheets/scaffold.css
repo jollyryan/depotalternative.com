@@ -121,6 +121,8 @@ input[type="submit"] {
 	text-shadow: rgba(0, 0, 0, 0.4960);
 }
 
+#action { margin: 15px 0 0 0; }
+
 #notice {
   color: green;
 }
@@ -177,10 +179,11 @@ input[type="submit"] {
 	padding: 28px;
 }
 
-#containter > #footer {
+#container > #footer {
 	clear: both;
 	background-color: transparent;
 	color: #888;
+	margin: 100px 0 0 0;
 }
 
 #container > #footer #footer_wrapper {

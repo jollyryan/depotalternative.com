@@ -16,6 +16,7 @@
 			<li>
 				<label for="position">Name:</label>
 				<div><%= f.text_field :name %></div>
+				<div>Example:  Jim's Hardware</div>
 			</li>
 		</ul>
 	</fieldset>
@@ -25,9 +26,7 @@
 			<li>
 				<label for="position">Address:</label>
 				<div><%= f.text_field :address %></div>
-				<div>
-					Example:  123 Oak Grove Rd.
-				</div>
+				<div>Example:  123 Oak Grove Rd.</div>
 			</li>
 		</ul>
 	</fieldset>
@@ -46,6 +45,7 @@
 			<li>
 				<label for="position">Specialty:</label>
 				<div><%= f.collection_select :specialty_id, Specialty.all, :id, :name%></div>
+				<div>Choose from out list of specialties.  Don't see what you're looking for?  Send us some feedback and we'll add it to our list.</div>
 			</li>
 		</ul>
 	</fieldset>
@@ -56,6 +56,7 @@
 			<li>
 				<label for="position">Phone:</label>
 				<div><%= f.text_field :phone_number %></div>
+				<div>Example:  123-456-7890</div>
 			</li>
 		</ul>
 	</fieldset>
@@ -65,6 +66,7 @@
 			<li>
 				<label for="position">Email:</label>
 				<div><%= f.text_field :email %></div>
+				<div>Example:  ryan@something.com</div>
 			</li>
 		</ul>
 	</fieldset>
@@ -93,7 +95,7 @@
 		</ul>
 	</fieldset>
 
-  <fieldset>
+  <div id="action">
     <%= f.submit %>
-  </fieldset>
+  </div>
 <% end %>
