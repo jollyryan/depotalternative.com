@@ -11,45 +11,89 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-    <br>
-    Contact Info
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
+	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Name:</label>
+				<div><%= f.text_field :name %></div>
+			</li>
+		</ul>
+	</fieldset>
+	
+	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Address:</label>
+				<div><%= f.text_field :address %></div>
+				<div>
+					Example:  123 Oak Grove Rd.
+				</div>
+			</li>
+		</ul>
+	</fieldset>
 
-  <div class="field">
-    <%= f.label :city_id %><br />
-    <%= f.collection_select :city_id, City.all, :id, :city_name%>
-  </div>
+  	<fieldset>
+		<ul>
+			<li>
+				<label for="position">City:</label>
+				<div><%= f.collection_select :city_id, City.all, :id, :city_name%></div>
+			</li>
+		</ul>
+	</fieldset>
 
-  <div class="field">
-    <%= f.label :specialty_id %><br />
-    <%= f.collection_select :specialty_id, Specialty.all, :id, :name%>
-  </div>
+	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Specialty:</label>
+				<div><%= f.collection_select :specialty_id, Specialty.all, :id, :name%></div>
+			</li>
+		</ul>
+	</fieldset>
 
 
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-    <br>
-   Upload an Image
-  <div><%= f.file_field :uploaded_file %></div>
+  	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Phone:</label>
+				<div><%= f.text_field :phone_number %></div>
+			</li>
+		</ul>
+	</fieldset>
+	
+	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Email:</label>
+				<div><%= f.text_field :email %></div>
+			</li>
+		</ul>
+	</fieldset>
+ 
+	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Description:</label>
+				<div><%= f.text_area :description %></div>
+				<div>
+					Tells us about your company/store.  Tell your customers why you're special and should use your company for their next project.
+				</div>
+			</li>
+		</ul>
+	</fieldset>
 
-  <div class="actions">
+	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Picture:</label>
+				<div><%= f.file_field :uploaded_file %></div>
+				<div>
+					Upload a picture of a job you've completed or your store.  Make sure your picture is a good representation of who you are or how you want to be portrayed.  You can always change this after you have created your listing.
+				</div>
+			</li>
+		</ul>
+	</fieldset>
+
+  <fieldset>
     <%= f.submit %>
-  </div>
+  </fieldset>
 <% end %>

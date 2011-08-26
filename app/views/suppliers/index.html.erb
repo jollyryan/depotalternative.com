@@ -1,16 +1,15 @@
 <div id="supplier_filter_search">
-    <h2><%= @results %></h2>
-    <br><br>
-
 
     <h5>Narrow down the suppliers:</h5>
-    <%= form_tag "/suppliers", :method => 'get', :id => 'suppliers_search' do  %>
-      <%= render 'states' %>
-      <div id='city_search_wrapper'><%= render 'cities' %></div>
-      <% if @specialties %>
-          <%= collection_select @filter, :specialty_id, @specialties, :id, :name, {:selected => params[:specialty_id], :prompt => '--Select a Specialty--'}, {:onchange => "$('#suppliers_search').submit()"}%>
-      <% end %>
-    <% end %>
+	<span class="filter_form">
+	    <%= form_tag "/suppliers", :method => 'get', :id => 'suppliers_search' do  %>
+	      <%= render 'states' %>
+	      <span id='city_search_wrapper'><%= render 'cities' %></span>
+	      <% if @specialties %>
+	          <%= collection_select @filter, :specialty_id, @specialties, :id, :name, {:selected => params[:specialty_id], :prompt => '--Select a Specialty--'}, {:onchange => "$('#suppliers_search').submit()"}%>
+	      <% end %>
+	    <% end %>
+	</span>
 </div>
 
 <div id="suppliers_wrapper">
