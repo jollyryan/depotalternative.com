@@ -1,0 +1,3 @@
+<% if @cities %>
+  <%= collection_select @filter, :city_id, @cities, :id, :city_name, {:id => 'city_search', :selected => params[:city_id], :prompt => '--Select a City--'}, {:onchange => "$('#suppliers_search').submit()"}%>
+<% end %>

@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(:version => 20110822030431) do
 
   add_index "suppliers", ["user_id"], :name => "index_suppliers_on_user_id"
 
+  create_table "uploads", :force => true do |t|
+    t.string   "local_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "supplier_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false

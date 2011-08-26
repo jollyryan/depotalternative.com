@@ -2,16 +2,28 @@ class SuppliersController < ApplicationController
   # GET /suppliers
   # GET /suppliers.xml
   
-  before_filter :authenticate_user!, :except=>[:show, :index]
+  before_filter :authenticate_user!, :except=> [:show, :index]
   
   def index
-    @suppliers = Supplier.all
+
+    @specialties = Specialty.all
+    @suppliers = Supplier.filter(params[:state], params[:city_id], params[:specialty_id], 20, params[:page])
+    @results = Supplier.get_results(params[:state], params[:city_id], params[:specialty_id])
+    @cities = City.find_all_by_state(params[:state])
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.xml  { render :xml => @suppliers }
     end
   end
+
+  #def get_cities
+  #  @cities = City.find_all_by_state(params[:state])
+  #  render :update do |page|
+  #    page.replace_html('cities_search', :partial => 'cities')
+  #  end
+  #end
 
   # GET /suppliers/1
   # GET /suppliers/1.xml

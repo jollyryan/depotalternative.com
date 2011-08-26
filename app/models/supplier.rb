@@ -27,4 +27,115 @@ class Supplier < ActiveRecord::Base
     uploaded_file_file_name
   end
 
+  def self.filter(state, city_id, specialty_id, per_page, page)
+
+      #IF NOT CHOOSE A STATE, RETURN ALL SUPPLIERS EVERYWHERE
+    if state != nil && state != '--Select a State--'
+       #IF CHOOSE STATE, GET CITIES OF THAT STATE
+       @cities = City.find_all_by_state(state)
+       #IF CITY SELECTED, GET SUPPLIERS FOR THAT CITY AND STATE ONLY
+       if city_id != nil && city_id != ''
+         @chosen_city = City.find_by_id(city_id)
+         #IF SPECIALTY SELECTED, GET SUPPLIERS WITH THAT SPECIALTY ONLY IN THAT CITY AND STATE
+         if specialty_id != nil && specialty_id != ''
+           if @cities.include?(@chosen_city)
+             find_by_sql("SELECT * FROM suppliers WHERE city_id = " + @chosen_city.id.to_s + " AND specialty_id = " + specialty_id).paginate(:per_page => per_page, :page => page)
+           else
+             find_by_sql("SELECT * FROM suppliers s, cities c WHERE s.city_id = c.id AND c.state = '" + state + "' AND specialty_id = " + specialty_id).paginate(:per_page => per_page, :page => page)
+           end
+         else
+           #TEMPORARY SOLUTION UNTIL REFRESH CITY DROPDOWN ON STATE CHANGE
+           if @cities.include?(@chosen_city)
+             @chosen_city.suppliers.paginate(:per_page => per_page, :page => page)
+           else
+             find_by_sql("SELECT * FROM suppliers s, cities c WHERE s.city_id = c.id AND c.state = '" + state + "'").paginate(:per_page => per_page, :page => page)
+           end
+         end
+
+       #IF NO CITY SELECTED AND SPECIALTY SELECTED, DISPLAY SUPPLIERS WITH THAT SPECIALTY IN THAT STATE
+       elsif specialty_id != nil && specialty_id != ''
+         find_by_sql("SELECT * FROM suppliers s, cities c WHERE s.city_id = c.id AND c.state = '" + state + "' AND s.specialty_id = " + specialty_id).paginate(:per_page => per_page, :page => page)
+       #IF NO CITY OR SPECIALTY SELECTED, RETURN ALL SUPPLIERS IN SELECTED STATE
+       else
+          find_by_sql("SELECT * FROM suppliers s, cities c WHERE s.city_id = c.id AND c.state = '" + state + "'").paginate(:per_page => per_page, :page => page)
+       end
+    elsif specialty_id != nil && specialty_id != ''
+      find_all_by_specialty_id(specialty_id).paginate(:per_page => per_page, :page => page)
+    else
+      all.paginate(:per_page => per_page, :page => page)
+    end
+  end
+
+  def self.get_results(state, city_id, specialty_id)
+     if state != nil && state != '--Select a State--'
+       #IF CHOOSE STATE, GET CITIES OF THAT STATE
+       @cities = City.find_all_by_state(state)
+       #IF CITY SELECTED, GET SUPPLIERS FOR THAT CITY AND STATE ONLY
+       if city_id != nil && city_id != ''
+         @chosen_city = City.find_by_id(city_id)
+         #IF SPECIALTY SELECTED, GET SUPPLIERS WITH THAT SPECIALTY ONLY IN THAT CITY AND STATE
+         if specialty_id != nil && specialty_id != ''
+            @results = "Showing " + Specialty.find_by_id(specialty_id).name + " Suppliers in " + @chosen_city.city_name + ", " + state
+         else
+           #TEMPORARY SOLUTION UNTIL REFRESH CITY DROPDOWN ON STATE CHANGE
+           if @cities.include?(@chosen_city)
+             @results = "Showing All Suppliers in " + @chosen_city.city_name + ", " + state
+           else
+             @results = "Showing All Suppliers in " + state
+           end
+         end
+
+       #IF NO CITY SELECTED AND SPECIALTY SELECTED, DISPLAY SUPPLIERS WITH THAT SPECIALTY IN THAT STATE
+       elsif specialty_id != nil && specialty_id != ''
+         @results = "Showing " + Specialty.find_by_id(specialty_id).name + " Suppliers in " + state
+       #IF NO CITY OR SPECIALTY SELECTED, RETURN ALL SUPPLIERS IN SELECTED STATE
+       else
+          @results = "Showing All Suppliers in " + state
+       end
+    elsif specialty_id != nil && specialty_id != ''
+      @results = "Showing " + Specialty.find_by_id(specialty_id).name + " Suppliers in All Cities"
+    else
+      @results = "Showing All Suppliers in All Cities"
+    end
+    return @results
+  end
+
+  #if state != nil && state != '--Select a State--'
+       #IF CHOOSE STATE, GET CITIES OF THAT STATE
+  #     @cities = City.find_all_by_state(state)
+       #IF CITY SELECTED, GET SUPPLIERS FOR THAT CITY AND STATE ONLY
+  #     if city_id != nil && city_id != ''
+  #       @chosen_city = City.find_by_id(city_id)
+  #       #IF SPECIALTY SELECTED, GET SUPPLIERS WITH THAT SPECIALTY ONLY IN THAT CITY AND STATE
+  #       if specialty_id != nil && specialty_id != ''
+  #         @suppliers = Supplier.find_by_sql("SELECT * FROM suppliers WHERE city_id = " + @chosen_city.id.to_s + " AND specialty_id = " + specialty_id).paginate(:per_page => @per_page, :page => params[:page])
+  #         @results = "Showing " + Specialty.find_by_id(params[:specialty_id]).name + " Suppliers in " + @chosen_city.city_name + ", " + params[:state]
+  #       else
+  #         #TEMPORARY SOLUTION UNTIL REFRESH CITY DROPDOWN ON STATE CHANGE
+  #         if @cities.include?(@chosen_city)
+  #           @results = "Showing All Suppliers in " + @chosen_city.city_name + ", " + params[:state]
+  #           @suppliers = @chosen_city.suppliers.paginate(:per_page => @per_page, :page => params[:page])
+  #         else
+  #           @suppliers = Supplier.find_by_sql("SELECT * FROM suppliers s, cities c WHERE s.city_id = c.id AND c.state = '" + params[:state] + "'").paginate(:per_page => @per_page, :page => params[:page])
+  #           @results = "Showing All Suppliers in " + params[:state]
+  #         end
+  #       end
+  #
+  #     #IF NO CITY SELECTED AND SPECIALTY SELECTED, DISPLAY SUPPLIERS WITH THAT SPECIALTY IN THAT STATE
+  #     elsif params[:specialty_id] != nil && params[:specialty_id] != ''
+  #       @suppliers = Supplier.find_by_sql("SELECT * FROM suppliers s, cities c WHERE s.city_id = c.id AND c.state = '" + params[:state] + "' AND s.specialty_id = " + params[:specialty_id]).paginate(:per_page => @per_page, :page => params[:page])
+  #       @results = "Showing " + Specialty.find_by_id(params[:specialty_id]).name + " Suppliers in " + params[:state]
+  #     #IF NO CITY OR SPECIALTY SELECTED, RETURN ALL SUPPLIERS IN SELECTED STATE
+  #     else
+  #        @suppliers = Supplier.find_by_sql("SELECT * FROM suppliers s, cities c WHERE s.city_id = c.id AND c.state = '" + params[:state] + "'").paginate(:per_page => @per_page, :page => params[:page])
+  #        @results = "Showing All Suppliers in " + params[:state]
+  #     end
+  #  elsif params[:specialty_id] != nil && params[:specialty_id] != ''
+  #    @suppliers = Supplier.find_all_by_specialty_id(params[:specialty_id]).paginate(:per_page => @per_page, :page => params[:page])
+  #    @results = "Showing " + Specialty.find_by_id(params[:specialty_id]).name + " Suppliers in All Cities"
+  #  else
+  #    @results = "Showing All Suppliers in All Cities"
+  #    @suppliers = Supplier.all.paginate(:per_page => @per_page, :page => params[:page])
+  #  end
+
 end
