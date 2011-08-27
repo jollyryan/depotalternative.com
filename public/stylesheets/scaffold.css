@@ -71,7 +71,7 @@ fieldset > ul > li > div, fieldset .options {
 	width: 350px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
 	background-color: #F2F2F2;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -509,3 +509,6 @@ div.search a {
 	display: inline;
 	width: auto;
 }
+
+/*----Register user----*/
+#register_header {text-align: center;}

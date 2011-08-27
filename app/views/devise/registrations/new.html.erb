@@ -1,18 +1,42 @@
-<h2>Sign up</h2>
+<div class="title_header"><h1>Sign up</h1></div>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+  	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Email:</label>
+				<div><%= f.text_field :email %></div>
+				<div>Example:  Jim's Hardware</div>
+			</li>
+		</ul>
+	</fieldset>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
+  	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Password:</label>
+				<div><%= f.password_field :password %></div>
+				<div>Tip:  For a strong password use a combination of at least 6 letters and numbers.</div>
+			</li>
+		</ul>
+	</fieldset>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+  	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Comfirm:</label>
+				<div><%= f.password_field :password_confirmation %></div>
+				<div>Please confirm your password.  This is case sensitive.</div>
+			</li>
+		</ul>
+	</fieldset>
 
-  <p><%= f.submit "Sign up" %></p>
+  	<div id="action">
+		<%= f.submit "Sign up" %>
+	</div>
+	
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
