@@ -1,4 +1,6 @@
 class SuppliersController < ApplicationController
+  load_and_authorize_resource
+  
   # GET /suppliers
   # GET /suppliers.xml
   

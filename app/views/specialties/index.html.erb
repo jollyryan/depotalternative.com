@@ -1,17 +1,19 @@
-<div id="specialty_form">
-	<fieldset>
-		<ul>
-			<li>
-				<label for="position">New Specialty:</label>
-				<div><%= render 'form' %></div>
-			</li>
-		</ul>
-	</fieldset>
+<% if can? :create, @specialty %>
+	<div id="specialty_form">
+		<fieldset>
+			<ul>
+				<li>
+					<label for="position">New Specialty:</label>
+					<div><%= render 'form' %></div>
+				</li>
+			</ul>
+		</fieldset>
+	</div>
 	<div id="clear"></div>
-</div>
-
-
-<h1>Listing specialties</h1>
+	<h1>Listing specialties</h1>
+<% else %>
+	<div class="title_header"><h1>Our current specialties</h1></div>
+<% end %>
 
 <table id="specialties">
 	<%= render :partial=>"specialties", :object=>@specialties %>

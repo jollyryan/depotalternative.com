@@ -1,4 +1,6 @@
 class SpecialtiesController < ApplicationController
+  load_and_authorize_resource
+  
   # GET /specialties
   # GET /specialties.xml
   def index
