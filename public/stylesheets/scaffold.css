@@ -44,6 +44,33 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
+#flash_notice {
+	background: #CBF3D6;
+	background-image: url(../images/check.png);
+	background-repeat: no-repeat;
+	background-position: 14px center;
+	border: 2px solid #8DD985;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	padding: 20px 10px 20px 80px;
+	width: auto;
+}
+
+#flash_alert {
+	background: #FFFECA;
+	background-image: url(../images/warning.png);
+	background-repeat: no-repeat;
+	background-position: 14px center;
+	border: 2px solid #FBEBAE;
+	color: #DA7C00;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	padding: 20px 10px 20px 80px;
+	width: auto;
+}
+
 fieldset {
 	border-bottom: 1px solid #E5E5E5;
 	padding: 20px 0;
@@ -91,7 +118,7 @@ select {
 	width: 200px;
 }
 
-input[type="submit"] {
+input[type="submit"], .button {
 	-webkit-box-shadow: rgba(255, 255, 255, 0.199219) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.699219) 0px 0px 2px 0px inset;
 	background: #4E7D0E -webkit-gradient(linear, 50% 0%, 50% 100%, from(#7DB72F), to(#4E7D0E));
 	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#7DB72F), to(#4E7D0E));
@@ -119,6 +146,14 @@ input[type="submit"] {
 	padding: 0px 15px;
 	text-decoration: none;
 	text-shadow: rgba(0, 0, 0, 0.4960);
+}
+
+.button {
+	padding: 6px;
+	margin-left: 10px;
+	font-size: 12px;
+	display: inline;
+	font-weight: normal;
 }
 
 #action { margin: 15px 0 0 0; }
@@ -167,7 +202,7 @@ input[type="submit"] {
 	background: transparent url("/images/container_large.png") no-repeat;
 	margin: 0 auto;
 	position: relative;
-	top: -78px;
+	top: -63px;
 	width: 1000px;
 }
 
@@ -237,7 +272,7 @@ input[type="submit"] {
 .wrapper {
 	margin: 0px auto;
 	overflow: hidden;
-	padding: 0;
+	padding: 10px 0 0 0;
 }
 
 .logo {float: left;}
@@ -336,7 +371,7 @@ div.search a {
 #listings li .type {
 	float: left;
 	margin-top: 8px;
-	width: auto;
+	width: 60px;
 	height: 16px;
 	font-size: 10px;
 	position: static;
@@ -382,19 +417,12 @@ div.search a {
 }
 
 #listings li .location {
-	float: left;
+	background-image: url(../images/compass.png);
+	background-repeat: no-repeat;
+	background-position: 14px center; 
+	float: left; 
 	margin-top: 7px;
-	width: 145px;
-	height: 16px;
-	background: url("/img/map-marker-light.png") no-repeat 0 50%;
-	padding-left: 16px;
-	position: static;
-	top: auto;
-	left: auto;
-	text-align: left;
-	max-width: none;
-	white-space: normal;
-	overflow: visible;
+	padding-left: 35px; 
 }
 
 #listings li .meta {
@@ -497,6 +525,17 @@ div.search a {
 }
 
 #specialty_form #new_specialty input[type="text"] { width: 300px; }
+
+ul#specialties{ margin-bottom: 30px;}
+ul #specialty{ 
+	font-size: 16px;
+	padding: 5px;
+}
+
+#multilist{
+	float: left;
+	width: 300px;
+}
 
 /*----Supplier/index filter---*/
 

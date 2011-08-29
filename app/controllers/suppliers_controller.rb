@@ -51,7 +51,7 @@ class SuppliersController < ApplicationController
 
   # GET /suppliers/1/edit
   def edit
-    @supplier = Supplier.find(params[:id])
+    @supplier = current_user.suppliers.find(params[:id])
   end
 
   # POST /suppliers
@@ -77,7 +77,7 @@ class SuppliersController < ApplicationController
   # PUT /suppliers/1
   # PUT /suppliers/1.xml
   def update
-    @supplier = Supplier.find(params[:id])
+    @supplier = current_user.suppliers.find(params[:id])
     @city = City.find(@supplier.city_id)
     @specialty = Specialty.find(@supplier.specialty_id)
 

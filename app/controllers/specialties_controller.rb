@@ -4,7 +4,7 @@ class SpecialtiesController < ApplicationController
   # GET /specialties
   # GET /specialties.xml
   def index
-    @specialties = Specialty.all
+    @specialties = Specialty.find(:all, :order => 'name')
     @specialty = Specialty.new
 
     respond_to do |format|

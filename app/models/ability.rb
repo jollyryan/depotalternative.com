@@ -7,8 +7,9 @@ class Ability
       can :manage, :all
     else
       can :read, Supplier
-      can :read, Specialty
-      can :read, City
+      can :udpate, Supplier, :user_id => user.id, :message => "You can only update your own listing."
+      can :read, Specialty, :message => "Admin access only."
+      can :read, City, :message => "Admin access only."
     end
   end
 end

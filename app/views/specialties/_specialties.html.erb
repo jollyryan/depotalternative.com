@@ -1,7 +1,17 @@
-<% for specialty in specialties %>
-  <tr id="specialty_<%= specialty.id %>">
-    <td><%= specialty.name %></td>
-    <td><%= link_to 'Edit', edit_specialty_path(specialty) %></td>
-    <td><%= link_to 'Destroy', specialty, :confirm => 'Are you sure?', :method => :delete, :remote=>true, :class=>'delete_post' %></td>
-  </tr>
+<% col_size = specialties.size/3 %>
+<% specialties.in_groups_of(col_size) do |group| %>
+  <div id='multilist'>
+    <ul id="specialties">
+    <% group.each do |specialty| %>
+      	<li id="specialty">
+			<% if specialty %>
+				<%= specialty.name %> 
+				<% if can? :create, @specialty %>
+					(<%= link_to 'edit', edit_specialty_path(specialty) %>)
+				<% end %>
+			<% end %>
+		</li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
