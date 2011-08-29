@@ -440,6 +440,7 @@ div.search a {
 	width: 100%;
 }
 #supplier_header .name {float: left; width: auto;}
+#supplier_header .name h2 {font-size: 16px;}
 #supplier_header .favorite {
 	background-image: url(../images/star.png);
 	background-repeat: no-repeat;
@@ -460,6 +461,12 @@ div.search a {
 	background-image: url(../images/print.png);
 	background-repeat: no-repeat;
 	background-position: 14px center; 
+	float: right; 
+	padding: 5px 5px 5px 35px; 
+	width: auto;
+}
+
+#supplier_header .login {
 	float: right; 
 	padding: 5px 5px 5px 35px; 
 	width: auto;

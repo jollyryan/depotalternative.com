@@ -36,6 +36,7 @@
 			<li>
 				<label for="position">City:</label>
 				<div><%= f.collection_select :city_id, City.all, :id, :city_name%></div>
+				<div>Don't see your city listed?  Send us some <%= link_to "feedback", "http://getsatisfaction.com/depotalternative" %> and we'll add it.</div>
 			</li>
 		</ul>
 	</fieldset>
@@ -45,7 +46,7 @@
 			<li>
 				<label for="position">Specialty:</label>
 				<div><%= f.collection_select :specialty_id, Specialty.all, :id, :name%></div>
-				<div>Choose from out list of specialties.  Don't see what you're looking for?  Send us some feedback and we'll add it to our list.</div>
+				<div>Choose from out list of specialties.  Don't see what you're looking for?  Send us some <%= link_to "feedback", "http://getsatisfaction.com/depotalternative" %> and we'll add it to our list.</div>
 			</li>
 		</ul>
 	</fieldset>
