@@ -120,6 +120,7 @@ select {
 
 input[type="submit"], .button {
 	-webkit-box-shadow: rgba(255, 255, 255, 0.199219) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.699219) 0px 0px 2px 0px inset;
+	background: #4E7D0E;
 	background: #4E7D0E -webkit-gradient(linear, 50% 0%, 50% 100%, from(#7DB72F), to(#4E7D0E));
 	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#7DB72F), to(#4E7D0E));
 	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#7DB72F), to(#4E7D0E));
@@ -421,12 +422,13 @@ div.search a {
 	background-repeat: no-repeat;
 	background-position: 14px center; 
 	float: left; 
-	margin-top: 7px;
+	margin-top: 10px;
 	padding-left: 35px; 
 }
 
 #listings li .meta {
 	float: right;
+	margin-top: 10px;
 	text-align: right;
 }
 
