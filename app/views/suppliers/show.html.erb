@@ -19,6 +19,8 @@
 <div id="clear"></div>
 
 <div id="supplier_body">
+	<div><span class="type <%= @supplier.specialty.name %>"><%= @supplier.specialty.name %></span></div>
+	<div id="clear"></div>
 	<div class="description"><%= @supplier.description %></div>
 
 	<div class="contact_info">
@@ -32,12 +34,6 @@
 	</div>
 
 	<div id="clear"></div>
-	
-	<p>
-	  <b>Specialty:</b>
-	  <%= @supplier.specialty.name %>
-	</p>
-
 	<p>
 	  <% if @supplier.uploaded_file_file_size != nil  %>
 	    <div class="image"><%= image_tag @supplier.uploaded_file.url(:normal) %></div>

@@ -4,7 +4,7 @@
     <li class="<%= cycle('even', 'odd') %>">
         <%= link_to supplier do %>
             <span>
-                <div class="type"><%= supplier.specialty.name %></div>
+                <div class="type <%=supplier.specialty.name  %>"><%= supplier.specialty.name %></div>
                 <div class="role">
                     <h3><%= supplier.name %></h3>
                      <span><%= truncate(supplier.description, :length => 40) %></span>

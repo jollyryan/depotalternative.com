@@ -340,9 +340,8 @@ div.search a {
 #listings li > a {
 	display: block;
 	overflow: hidden;
-	padding: 17px 11px;
+	padding: 17px 11px 17px 0;
 	color: #222;
-	padding: 16px 13px;
 	-moz-transition: all .1s linear;
 	-webkit-transition: all .1s linear;
 	-o-transition: all .1s linear;
@@ -369,21 +368,40 @@ div.search a {
 	top: -3px;
 }
 
-#listings li .type {
+.type {
+	background: #292929;
+	color: #FFF;
 	float: left;
-	margin-top: 8px;
+	margin-top: 3px;
 	width: 60px;
-	height: 16px;
 	font-size: 10px;
 	position: static;
 	top: auto;
 	left: auto;
 	text-align: left;
 	max-width: none;
-	padding-right: 15px;
+	padding: 2px 0;
+	margin: 3px 15px 3px 5px;
 	white-space: normal;
-	overflow: visible;
+	text-align: center;
+	border-bottom-left-radius: 4px 4px;
+	border-bottom-left-radius: 4px 4px;
+	border-bottom-left-radius: 4px 4px;
+	border-bottom-right-radius: 4px 4px;
+	border-bottom-right-radius: 4px 4px;
+	border-bottom-right-radius: 4px 4px;
+	border-top-left-radius: 4px 4px;
+	border-top-left-radius: 4px 4px;
+	border-top-left-radius: 4px 4px;
+	border-top-right-radius: 4px 4px;
+	border-top-right-radius: 4px 4px;
+	border-top-right-radius: 4px 4px;
 }
+
+.flooring { background: green; }
+.plumbing { background: #C40C3A; }
+.paint { background: #3F85D1; }
+.appliances { background: #F2951B; }
 
 #listings li .role h3 {
 	display: block;
@@ -435,7 +453,7 @@ div.search a {
 #supplier_header {
 	border-bottom: 1px solid #CCC; 
 	clear: left; 
-	margin-bottom: 25px; 
+	margin-bottom: 10px; 
 	padding-bottom: 50px; 
 	width: 100%;
 }
@@ -475,6 +493,7 @@ div.search a {
 
 #supplier_body .description {
 	float: left;
+	margin-top: 10px;
 	min-width: 300px;
 	width: 550px;
 }
