@@ -1,5 +1,6 @@
 Depotalternative::Application.routes.draw do
 
+  get "admins/index"
 
   devise_for :users, :path_prefix => 'd'
   resources :users
