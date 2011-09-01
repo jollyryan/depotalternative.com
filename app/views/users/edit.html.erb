@@ -1,13 +1,31 @@
-<h2>Edit <%= @user.email %></h2>
+<div class="title_header"><h1>Edit <%= @user.email%></h1></div>
 
 <%= form_for(@user) do |f| %>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+  	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Email:</label>
+				<div><%= f.text_field :email %></div>
+				<div>DO NOT CHANGE THIS!!!!</div>
+			</li>
+		</ul>
+	</fieldset>
 
-  <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  	<fieldset>
+		<ul>
+			<li>
+				<label for="position">Role:</label>
+				<div><%= f.collection_select :role, User::ROLES, :to_s, :humanize %></div>
+				<div>Only change this if you want to add ADMIN's</div>
+			</li>
+		</ul>
+	</fieldset>
 
-  <p><%= f.submit "Update" %></p>
+  	<div id="action">
+		<%= f.submit %>
+	</div>
+	
 <% end %>
 
 <%= link_to "Back", :back %>

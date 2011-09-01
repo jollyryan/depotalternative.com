@@ -2,20 +2,26 @@
 
 <%= link_to "Back to Admin Dashboard", admins_index_path %>
 
-<table>
-  <tr>
-    <th>Username</th>
-    <th>Role</th>
-  </tr>
-
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.email %></td>
-    <td><%= user.role %></td>
-
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<ul id="listings">
+	<li class="header">
+		<div class="type">#</div>
+		<div class="email"><h3>Email</h3></div>
+		<div class="date"><h3>Created</h3></div>
+		<div class="date"><h3>Last Login</h3></div>	
+	<li>
+<% if @users.count > 0 %>
+    <% @users.each do |user| %>
+    <li class="<%= cycle('even', 'odd') %>">
+		<%= link_to edit_user_path(user) do %>
+	    	<span>
+				<div class="type"><%= user.sign_in_count %></div>
+		        <div class="email"><h3><%= user.email %></h3></div>
+		        <div class="date"><%= user.created_at.to_date %></div>
+		        <div class="date"><%= user.last_sign_in_at.to_date %></div>
+		    </span>
+		<% end %>
+    </li>
+    <% end %>
 <% end %>
-</table>
+
+</ul>

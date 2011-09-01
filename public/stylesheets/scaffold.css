@@ -157,6 +157,35 @@ input[type="submit"], .button {
 	font-weight: normal;
 }
 
+#dashboard_button {
+	color: #606060;
+	border: solid 1px #B7B7B7;
+	background: white;
+	background: -webkit-gradient(linear, left top, left bottom, from(white), to(#EDEDED));
+	background: -moz-linear-gradient(top, white, #EDEDED);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#EDEDED');
+	display: inline-block;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 24px/100% Arial, Helvetica, sans-serif;
+	padding: 10px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	width: 125px;
+}
+
+#dashboard_button a { color: #000;}
+#dahsboard_button a:hover {color: #000; text-decoration: underline;}
+
 #action { margin: 15px 0 0 0; }
 
 #notice {
@@ -360,12 +389,34 @@ div.search a {
 	position: relative;
 }
 
+#listings li.header {
+	min-height: 37px;
+	display: block;
+	position: relative;
+}
+
 #listings li .role {
 	float: left;
 	width: 350px;
 	margin-right: 12px;
 	position: relative;
 	top: -3px;
+}
+
+#listings li .email {
+	float: left;
+	width: 350px;
+	margin-right: 12px;
+	position: relative;
+	top: 7px;
+}
+
+#listings li .date {
+	float: left;
+	width: 225px;
+	margin-right: 12px;
+	position: relative;
+	top: 7px;
 }
 
 .type {

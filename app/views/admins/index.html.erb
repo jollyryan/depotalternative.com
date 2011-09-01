@@ -1,2 +1,5 @@
 <h1>Admin Dashboard</h1>
-<p><%= link_to "View users", users_path %></p>
+<%= link_to users_path, :id=>"dashboard_button" do %>
+	<div class="background"><%= image_tag "users.png" %></div>
+	<div class="text">Users</div>
+<% end %>

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %w[admin supplier consumer]
+  ROLES = %w[consumer supplier admin]
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
