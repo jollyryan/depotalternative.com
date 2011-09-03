@@ -5,10 +5,12 @@
 		</div>
 		<ul id="nav">
 			<li><%= link_to 'Suppliers', suppliers_path %></li>
-			<li><%= link_to 'Cities', cities_path %></li>
 			<li><%= link_to 'How it works', "#" %></li>	
+			<li><%= link_to 'Specialties', specialties_path %></li>
 		<% if user_signed_in? %>
-	        <li><%= link_to 'Specialties', specialties_path %></li>
+			<% if current_user.admin? %>
+				<li><%= link_to 'Admin', admins_index_path %></li>
+			<% end %>
 		<% end %>
 		</ul>
 		<div id="login_user_status">
