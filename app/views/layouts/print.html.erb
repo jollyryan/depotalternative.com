@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Depot Alternative | Print</title>
+    <%= stylesheet_link_tag :all %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+	<div id="print">
+		<%= yield %>
+		<div id="footer">
+			<%= render :partial => 'layouts/footer' %>
+		</div>
+	</div>
+  </body>
+</html>

@@ -199,28 +199,31 @@ input[type="submit"], .button {
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+  	background: #FFFECA;
+	background-image: url(../images/warning.png);
+	background-repeat: no-repeat;
+	background-position: 14px center;
+	border: 2px solid #FBEBAE;
+	color: #DA7C00;
+	font-weight: bold;
+	margin-bottom: 30px;
+	padding: 20px 10px 20px 80px;
+	width: auto;
 }
 
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
+  font-size: 16px;
   margin-bottom: 0px;
-  background-color: #c00;
-  color: #fff;
+  color: #c00;
 }
 
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
+  margin-left: 50px;
 }
 
 #content { background: white url("/images/pattern.gif") repeat-x; }
@@ -244,45 +247,51 @@ input[type="submit"], .button {
 	padding: 28px;
 }
 
-#container > #footer {
+#footer {
 	clear: both;
 	background-color: transparent;
 	color: #888;
 	margin: 100px 0 0 0;
 }
 
-#container > #footer #footer_wrapper {
+#footer #footer_wrapper {
 	border-top: 1px solid #ECECEC;
 	padding: 35px 40px;
 	margin: 0 auto;
 }
 
-#container > #footer #footer_wrapper ul {
+#footer #footer_wrapper ul {
 	width: 100%;
 }
 
-#container > #footer #footer_wrapper ul li {
+#footer #footer_wrapper ul li {
 	float: left;
 	margin-right: 15px;
 	font-size: 11px;
 }
 
-#container > #footer #footer_wrapper h4 {
+#footer #footer_wrapper h4 {
 	display: block;
 	width: 200px;
 	height: 20px;
 	margin: 40px 0 10px;
 }
 
-#container > #footer #footer_wrapper ul li a {
+#footer #footer_wrapper ul li a {
 	clear: left;
 	font-weight: 200;
 	color: #888;
 }
 
-#container > #footer p { font-size: 11px; }
+#footer p { font-size: 11px; }
 
-#container > #footer #footer_wrapper ul li a:hover, #container > #footer #footer-wrapper ul li a:focus { color: #222; }
+#footer #footer_wrapper ul li a:hover, #container > #footer #footer-wrapper ul li a:focus { color: #222; }
+
+#print {
+	margin: 0 auto;
+	padding: 20px;
+	width: 900px;
+}
 
 #header {
 	background-color: #292929;

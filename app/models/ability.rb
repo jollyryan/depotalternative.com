@@ -6,8 +6,12 @@ class Ability
     if user.admin?
       can :manage, :all
     else
+      
+      alias_action :edit, :update, :to => :modify
+      
       can :read, Supplier
-      can :udpate, Supplier, :user_id => user.id, :message => "You can only update your own listing."
+      can :create, Supplier if user
+      can [:modify, :destroy], Supplier, :user_id => user.id
       can :read, Specialty, :message => "Admin access only."
     end
   end

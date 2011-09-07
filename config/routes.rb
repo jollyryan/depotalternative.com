@@ -6,6 +6,7 @@ Depotalternative::Application.routes.draw do
   resources :users
   
   resources :suppliers
+  match 'suppliers/:id/print'  => 'suppliers#show', :as => :print_supplier
   resources :cities
   resources :specialties
   

@@ -7,6 +7,10 @@ class Supplier < ActiveRecord::Base
 
   validates :name, :city_id, :specialty_id, :presence => true
 
+  validates_each :user do |supplier, attr, value|
+    supplier.errors.add attr, "You can only create one listing." if supplier.user.suppliers.size >= 1
+  end
+
   #set up "uploaded_file" field as attached_file (using Paperclip)
   has_attached_file :uploaded_file,
                     :path => "suppliers/:id/:style/:basename.:extension",

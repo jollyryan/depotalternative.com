@@ -1,6 +1,8 @@
 class SuppliersController < ApplicationController
   load_and_authorize_resource
   
+  layout :choose_layout
+  
   # GET /suppliers
   # GET /suppliers.xml
   
@@ -37,6 +39,17 @@ class SuppliersController < ApplicationController
       format.xml  { render :xml => @supplier }
     end
   end
+  
+  # GET /suppliers/1
+  # GET /suppliers/1.xml
+  def print
+    @supplier = Supplier.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @supplier }
+    end
+  end
 
   # GET /suppliers/new
   # GET /suppliers/new.xml
@@ -51,7 +64,7 @@ class SuppliersController < ApplicationController
 
   # GET /suppliers/1/edit
   def edit
-    @supplier = current_user.suppliers.find(params[:id])
+    @supplier = Supplier.find(params[:id])
   end
 
   # POST /suppliers
@@ -77,7 +90,7 @@ class SuppliersController < ApplicationController
   # PUT /suppliers/1
   # PUT /suppliers/1.xml
   def update
-    @supplier = current_user.suppliers.find(params[:id])
+    @supplier = Supplier.find(params[:id])
     @city = City.find(@supplier.city_id)
     @specialty = Specialty.find(@supplier.specialty_id)
 
@@ -95,12 +108,22 @@ class SuppliersController < ApplicationController
   # DELETE /suppliers/1
   # DELETE /suppliers/1.xml
   def destroy
-    @supplier = Supplier.find(params[:id])
+    @supplier = current_user.suppliers.find(params[:id])
     @supplier.destroy
 
     respond_to do |format|
-      format.html { redirect_to(suppliers_url) }
+      format.html { redirect_to(suppliers_url, :notice => 'Supplier was successfully deleted.') }
       format.xml  { head :ok }
+    end
+  end
+  
+  private
+  
+  def choose_layout
+    if current_user && params[:print] == "true"
+      "print"
+    else
+      "application"
     end
   end
 end
