@@ -12,6 +12,7 @@ class Ability
       can :read, Supplier
       can :create, Supplier if user
       can [:modify, :destroy], Supplier, :user_id => user.id
+      can :manage, Favorite, :user_id => user.id
       can :read, Specialty, :message => "Admin access only."
     end
   end

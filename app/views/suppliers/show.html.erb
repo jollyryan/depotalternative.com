@@ -11,8 +11,8 @@
 	</div>
 	
 	<% if current_user %>
-		<div class="favorite"><%= link_to "Favorite", "#" %></div>
-		<div class="share"><%= link_to "Share", "#" %></div>
+		<div class="favorite"><%= link_to 'Favorite', favorites_path(:id=>@supplier), :method => :post %></div>
+		<div class="share">Share</div>
 		<div class="print"><%= link_to "Print", supplier_path(@supplier, :print=>true) %></div>			
 	<% else %>
 		<div class="login"><%= link_to 'Sign in', new_user_session_path %> for options</div>

@@ -1,9 +1,12 @@
 Depotalternative::Application.routes.draw do
 
   get "admins/index"
-
+  
+  resources :favorites, :only => [:index, :create, :destroy]
+  
   devise_for :users, :path_prefix => 'd'
   resources :users
+  
   
   resources :suppliers
   match 'suppliers/:id/print'  => 'suppliers#show', :as => :print_supplier

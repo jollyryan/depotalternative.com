@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role
   
   has_many :suppliers
+  has_many :favorites,  :dependent => :destroy, :source => :supplier
   
   def admin?
     if self.role == "admin"
