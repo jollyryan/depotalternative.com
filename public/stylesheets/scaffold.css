@@ -311,7 +311,7 @@ input[type="submit"], .button {
 .wrapper {
 	margin: 0px auto;
 	overflow: hidden;
-	padding: 10px 0 0 0;
+	padding: 0 0 0 0;
 }
 
 .logo {float: left;}
@@ -320,7 +320,7 @@ ul#nav {
 	border: none;
 	float: left;
 	list-style: none;
-	margin: 31px 0px 0px 20px;
+	margin: 40px 0px 0px 20px;
 	text-align: left;
 	width: 430px;
 }
@@ -333,7 +333,7 @@ ul#nav li {
 
 ul#nav li a {font-size: 14px;}
 
-#login_user_status {float: right;}
+#login_user_status {float: right; margin-top: 5px;}
 
 .supplier_filter { 
 	font-weight: bold;
