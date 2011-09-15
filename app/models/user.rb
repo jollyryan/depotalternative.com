@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
       false
     end
   end
+  
+  def location
+    Geocoder.search(self.current_sign_in_ip)
+  end
 end

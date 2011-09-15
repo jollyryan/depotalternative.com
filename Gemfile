@@ -9,3 +9,4 @@ gem 'devise', '1.1.5'
 gem "cancan"
 gem 'jquery-rails'
 gem 'will_paginate', '3.0.pre4'
+gem 'geocoder'
