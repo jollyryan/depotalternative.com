@@ -11,6 +11,6 @@
 	<h4>A Jolly Factory Production</h4>
 	<p>© 2011 Depot Alternative, LLC. Rob Henry</p>
 	<% if user_signed_in? %>
-		<p>	<%= current_user.location %></p>
+		<p>	<%= current_user.location[0].data["city"] %>, <%= current_user.location[0].data["region_code"] %></p>
 	<% end %>
 </div>
