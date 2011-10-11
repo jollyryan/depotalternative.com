@@ -21,6 +21,20 @@
 		       			<%= content_tag :div, msg, :id => "flash_#{name}" %>
 		     		<% end %>
 		     		<%= yield %>
+					<% if controller.controller_name == "suppliers" %>
+					<div id="right">
+						<%= image_tag "map.png", :class=>"supplier_map"%>
+						<h1>Hey suppliers! Come join us.</h1>
+						Want to be part of the club? Signup and upload images of your work.  Attract new customers and make more money.  Depot Alternative was created by a supplier for suppliers.  We know how difficult it is to compete with big box stores.
+						
+						<div class="supplier_button"><%= link_to 'Create your listing', new_supplier_path, :class=>"button" %></div>
+						
+						<h2>Why Depot Alternative?</h2>
+						
+						<div>One thing big box stores offer is convenience.  Depot Alternative's mission is to make it convenient for our customers to find their local suppliers.  We know we offer better prices, friendlier service and more convenience.  Together we can help more customers know what we've known all along.</div>
+						
+					</div>
+					<% end %>
 				</div>
 			</div>
 			<div id="footer">
