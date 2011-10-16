@@ -21,6 +21,10 @@ class SuppliersController < ApplicationController
       format.xml  { render :xml => @suppliers }
     end
   end
+  
+  def about
+    #needed a quick place to put a landing page
+  end
 
   #def get_cities
   #  @cities = City.find_all_by_state(params[:state])
