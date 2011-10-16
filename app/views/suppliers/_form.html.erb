@@ -1,4 +1,42 @@
-<%= form_for @supplier, :html=>{:multipart=>true} do |f| %>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("select#supplier_state_id").change(function(){
+            var id_value_string = $(this).val();
+            if (id_value_string == "") {
+                // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
+                $("select#supplier_city_id option").remove();
+                var row = "<option value=\"" + "" + "\">" + "--No Cities--" + "</option>";
+                $(row).appendTo("select#supplier_city_id");
+            }
+            else {
+                // Send the request and update sub category dropdown
+                $.ajax({
+                    dataType: "json",
+                    cache: false,
+                    url: '/cities/for_stateid/' + id_value_string,
+                    timeout: 2000,
+                    error: function(XMLHttpRequest, errorTextStatus, error){
+                        alert("Failed to submit : "+ errorTextStatus+" ;"+error);
+                    },
+                    success: function(data){
+                        // Clear all options from sub category select
+                        $("select#supplier_city_id option").remove();
+                        //put in a empty default line
+                        var row = "<option value=\"" + "" + "\">" + "--Select a City--" + "</option>";
+                        $(row).appendTo("select#supplier_city_id");
+                        // Fill sub category select
+                        $.each(data, function(i, j){
+                            row = "<option value=\"" + j.city.id + "\">" + j.city.city_name + "</option>";
+                            $(row).appendTo("select#supplier_city_id");
+                        });
+                     }
+                });
+            };
+                });
+    });
+</script>
+
+<%= form_for(@supplier, :html=>{:multipart=>true}) do |f| %>
   <% if @supplier.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
@@ -31,15 +69,29 @@
 		</ul>
 	</fieldset>
 
-  	<fieldset>
-		<ul>
-			<li>
-				<label for="position">City:</label>
-				<div><%= f.collection_select :city_id, City.all, :id, :city_name%></div>
-				<div>Don't see your city listed?  Send us some <%= link_to "feedback", "http://getsatisfaction.com/depotalternative" %> and we'll add it.</div>
-			</li>
-		</ul>
-	</fieldset>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="position">State:</label>
+                <% if @state %>
+                  <div><%= collection_select :supplier, :state_id, @states, :id, :name, {:selected => @state.id, :prompt => '--Select a State--'} %></div>
+                <% else %>
+                  <div><%= collection_select(:supplier, :state_id, @states, :id, :name, {:prompt => '--Select a State--'}) %></div>
+                <% end %>
+              <div>Example:  Alabama</div>
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <ul>
+            <li>
+                <label for="position">City:</label>
+                <div><%= collection_select :supplier, :city_id, @cities, :id, :city_name, {:prompt => '--Select a City--'} %></div>
+                <div>Example:  Montgomery</div>
+            </li>
+        </ul>
+    </fieldset>
 
 	<fieldset>
 		<ul>

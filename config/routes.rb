@@ -1,13 +1,22 @@
 Depotalternative::Application.routes.draw do
 
+  get "click/new"
+
+  get "states/index"
+
+  get "states/new"
+
   get "admins/index"
 
   devise_for :users, :path_prefix => 'd'
   resources :users
-  
+  resources :states
   resources :suppliers
   resources :cities
   resources :specialties
+
+  match ':controller/:action/:id'
+  match '/cities/for_stateid/:id' => 'cities#for_stateid'
   
 
   # The priority is based upon order of creation:

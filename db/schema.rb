@@ -10,17 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110822030431) do
+ActiveRecord::Schema.define(:version => 20111015213802) do
 
   create_table "cities", :force => true do |t|
     t.string   "city_name"
-    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "state_id"
+  end
+
+  create_table "clicks", :force => true do |t|
+    t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "specialties", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20110822030431) do
     t.datetime "uploaded_file_updated_at"
     t.integer  "specialty_id"
     t.integer  "user_id"
+    t.integer  "state_id"
   end
 
   add_index "suppliers", ["user_id"], :name => "index_suppliers_on_user_id"

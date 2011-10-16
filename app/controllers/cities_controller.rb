@@ -17,6 +17,7 @@ class CitiesController < ApplicationController
     # GET /cities/1.xml
     def show
       @city = City.find(params[:id])
+      @state = State.find(@city.state_id)
 
       respond_to do |format|
         format.html # show.html.erb
@@ -44,9 +45,10 @@ class CitiesController < ApplicationController
     # POST /cities.xml
     def create
       @city = City.new(params[:city])
+      @state = State.find(params[:state_id])
 
       respond_to do |format|
-        if @city.save
+        if @state.cities << @city
           format.html { redirect_to(@city, :notice => 'City was successfully created.') }
           format.xml  { render :xml => @city, :status => :created, :location => @city }
         else
@@ -81,6 +83,13 @@ class CitiesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to(cities_url) }
         format.xml  { head :ok }
+      end
+    end
+
+    def for_stateid
+      @cities = City.find_all_by_state_id(params[:id]).sort_by{ |k| k['city_name']}
+      respond_to do |format|
+        format.json  { render :json => @cities }
       end
     end
 
