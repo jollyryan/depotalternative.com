@@ -8,6 +8,8 @@ Depotalternative::Application.routes.draw do
 
   get "admins/index"
 
+  match '/cities/for_stateid/:state_id' => 'cities#for_stateid'
+
   devise_for :users, :path_prefix => 'd'
   resources :users
   resources :states
@@ -16,7 +18,6 @@ Depotalternative::Application.routes.draw do
   resources :specialties
 
   match ':controller/:action/:id'
-  match '/cities/for_stateid/:id' => 'cities#for_stateid'
   
 
   # The priority is based upon order of creation:

@@ -87,7 +87,7 @@ class CitiesController < ApplicationController
     end
 
     def for_stateid
-      @cities = City.find_all_by_state_id(params[:id]).sort_by{ |k| k['city_name']}
+      @cities = City.find_all_by_state_id(params[:state_id]).sort_by{ |k| k['city_name']}
       respond_to do |format|
         format.json  { render :json => @cities }
       end

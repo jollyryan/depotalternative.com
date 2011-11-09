@@ -44,7 +44,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers/new.xml
   def new
     @states = State.all
-    @cities = City.find_all_by_state_id(params[:state_id])
+    @cities = City.find_all_by_state_id(params[:id])
     @supplier = current_user.suppliers.new
 
     respond_to do |format|
