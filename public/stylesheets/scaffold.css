@@ -120,9 +120,9 @@ select {
 
 input[type="submit"], .button {
 	-webkit-box-shadow: rgba(255, 255, 255, 0.199219) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.699219) 0px 0px 2px 0px inset;
-	background: #4E7D0E -webkit-gradient(linear, 50% 0%, 50% 100%, from(#FFE655), to(#DDAA11));
-	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#FFE655), to(#DDAA11));
-	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#FFE655), to(#DDAA11));
+	background: #4E7D0E -webkit-gradient(linear, 50% 0%, 50% 100%, from(#7DB72F), to(#4E7D0E));
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#7DB72F), to(#4E7D0E));
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#7DB72F), to(#4E7D0E));
 	border: 1px solid #0A434B;
 	border-bottom-left-radius: 4px 4px;
 	border-bottom-left-radius: 4px 4px;
@@ -136,7 +136,7 @@ input[type="submit"], .button {
 	border-top-right-radius: 4px 4px;
 	border-top-right-radius: 4px 4px;
 	border-top-right-radius: 4px 4px;
-	color: #292929 !important;
+	color: #FFF !important;
 	cursor: pointer;
 	display: block;
 	font-size: 16px;
