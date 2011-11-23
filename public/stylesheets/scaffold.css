@@ -31,11 +31,11 @@ h1 {
 h2, h3,h4 {margin: 0; padding: 0; display: inline;}
 
 a { 
-	color: #DDD;
+	color: #292929;
 	font-size: 12px;
 	text-decoration: none; 
 }
-a:visited { color: #DDD; }
+a:visited { color: #292929; }
 a:hover { color: #AAA; text-decoration: underline; }
 
 ol, ul { list-style: none; margin: 0; padding: 0;}
@@ -231,11 +231,11 @@ input[type="submit"], .button {
 #content a:focus, a:hover {color: #379CFF;}
 
 #container {
-	background: transparent url("/images/container_large.png") no-repeat;
+	background: url("/images/container_large.png") no-repeat;
 	margin: 0 auto;
 	position: relative;
 	top: -63px;
-	width: 1000px;
+	width: 1022px;
 }
 
 #container > .inner {
@@ -293,8 +293,9 @@ input[type="submit"], .button {
 }
 
 #header {
-	background-color: #292929;
-
+	background: #4E7D0E -webkit-gradient(linear, 50% 0%, 50% 100%, from(#FFE655), to(#DDAA11));
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#FFE655), to(#DDAA11));
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#FFE655), to(#DDAA11));
 	height: 178px;
 	margin: 0 auto;
 	min-width: 700px;
@@ -366,7 +367,7 @@ ul.search_bar {
 
 ul.search_bar li {
 	font-size: 15px;
-	color: #222;
+	color: #292929;
 	line-height: 13px;
 	position: relative;
 	z-index: 500;
