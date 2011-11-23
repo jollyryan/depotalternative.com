@@ -21,7 +21,7 @@ development:
   database: deplotalternative_development
   pool: 5
   username: root
-  password:
+  password: password
   socket: /tmp/mysql.sock
   host: localhost
 
@@ -35,7 +35,7 @@ test:
   database: deplotalternative_test
   pool: 5
   username: root
-  password:
+  password: password
   socket: /tmp/mysql.sock
   host: localhost
 
@@ -46,6 +46,6 @@ production:
   database: deplotalternative_production
   pool: 5
   username: root
-  password:
+  password: password
   socket: /tmp/mysql.sock
   host: localhost

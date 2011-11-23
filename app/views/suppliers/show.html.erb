@@ -2,17 +2,12 @@
 
 <div id="supplier_header">
 	<div class="name">
-<<<<<<< HEAD
 		<div><h2><%= @supplier.name %></h2> 
 			<% if can? :modify, @supplier %>
 		  		<%= link_to "Edit", edit_supplier_path(@supplier) %>
 			<% end %>
 		</div>
-		<div class="city_state"><%= @supplier.city.city_name %>, <%= @supplier.city.state %></div>
-=======
-		<div><h2><%= @supplier.name %></h2> <%= link_to 'Edit', edit_supplier_path(@supplier) %></div>
 		<div class="city_state"><%= @supplier.city.city_name %>, <%= @supplier.city.state.name %></div>
->>>>>>> 28c79bfbb7c43cacb26f4df8e07190baf7bbe46a
 	</div>
 	
 	<% if current_user %>
@@ -55,8 +50,9 @@
 <div id="clear"></div>
 
 <div id="supplier_footer">
-
-  <% if User.find(current_user).id == @supplier.user_id %>
+<% if current_user %>
+  <% if current_user.id == @supplier.user_id %>
         View this month:  <%= @clicks_this_month.size %>
   <% end %>
+<% end %>
 </div>

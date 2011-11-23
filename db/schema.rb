@@ -10,11 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20110908002604) do
-=======
 ActiveRecord::Schema.define(:version => 20111015213802) do
->>>>>>> 28c79bfbb7c43cacb26f4df8e07190baf7bbe46a
 
   create_table "cities", :force => true do |t|
     t.string   "city_name"
