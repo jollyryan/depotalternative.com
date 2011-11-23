@@ -11,9 +11,10 @@ class SuppliersController < ApplicationController
   def index
 
     @specialties = Specialty.all
-    @suppliers = Supplier.filter(params[:state], params[:city_id], params[:specialty_id], 20, params[:page])
-    @results = Supplier.get_results(params[:state], params[:city_id], params[:specialty_id])
-    @cities = City.find_all_by_state(params[:state])
+    @suppliers = Supplier.filter(params[:state_id], params[:city_id], params[:specialty_id], 20, params[:page])
+    @results = Supplier.get_results(params[:state_id], params[:city_id], params[:specialty_id])
+    @states = State.all
+    @cities = City.find_all_by_state_id(params[:state_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,21 +27,22 @@ class SuppliersController < ApplicationController
     #needed a quick place to put a landing page
   end
 
-  #def get_cities
-  #  @cities = City.find_all_by_state(params[:state])
-  #  render :update do |page|
-  #    page.replace_html('cities_search', :partial => 'cities')
-  #  end
-  #end
 
   # GET /suppliers/1
   # GET /suppliers/1.xml
   def show
     @supplier = Supplier.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @supplier }
+    @click = Click.new(@supplier.id)
+
+    if @supplier.clicks << @click
+      @clicks_this_month = Click.clicks_this_month Date.today
+
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @supplier }
+      end
     end
   end
   
@@ -58,6 +60,8 @@ class SuppliersController < ApplicationController
   # GET /suppliers/new
   # GET /suppliers/new.xml
   def new
+    @states = State.all
+    @cities = City.find_all_by_state_id(params[:id])
     @supplier = current_user.suppliers.new
 
     respond_to do |format|
@@ -66,9 +70,13 @@ class SuppliersController < ApplicationController
     end
   end
 
+
   # GET /suppliers/1/edit
   def edit
-    @supplier = Supplier.find(params[:id])
+    @supplier = current_user.suppliers.find(params[:id])
+    @state = State.find(@supplier.city.state)
+    @cities = City.find_all_by_state_id(@state.id)
+    @states = State.all
   end
 
   # POST /suppliers
@@ -78,17 +86,17 @@ class SuppliersController < ApplicationController
     @specialty = Specialty.find(@supplier.specialty_id)
     @city = City.find(@supplier.city_id)
 
-
     respond_to do |format|
       if @city.suppliers << @supplier && @specialty.suppliers << @supplier
         format.html { redirect_to(@supplier, :notice => 'Supplier was successfully created.') }
         format.xml  { render :xml => @supplier, :status => :created, :location => @supplier }
       else
+        #@states = State.all
+        #@cities = City.find_all_by_state_id(params[:state_id])
         format.html { render :action => "new" }
         format.xml  { render :xml => @supplier.errors, :status => :unprocessable_entity }
       end
     end
-
   end
 
   # PUT /suppliers/1

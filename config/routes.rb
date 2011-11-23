@@ -1,6 +1,13 @@
 Depotalternative::Application.routes.draw do
 
+  get "click/new"
+
+  get "states/index"
+
+  get "states/new"
+
   get "admins/index"
+<<<<<<< HEAD
   
   resources :favorites, :only => [:index, :create, :destroy]
   
@@ -8,11 +15,21 @@ Depotalternative::Application.routes.draw do
   resources :users
   
   
+=======
+
+  match '/cities/for_stateid/:state_id' => 'cities#for_stateid'
+
+  devise_for :users, :path_prefix => 'd'
+  resources :users
+  resources :states
+>>>>>>> 28c79bfbb7c43cacb26f4df8e07190baf7bbe46a
   resources :suppliers
   match 'suppliers/:id/print'  => 'suppliers#show', :as => :print_supplier
   match 'about' => 'suppliers#about'
   resources :cities
   resources :specialties
+
+  match ':controller/:action/:id'
   
 
   # The priority is based upon order of creation:

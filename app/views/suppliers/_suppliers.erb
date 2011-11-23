@@ -10,7 +10,7 @@
                      <span><%= truncate(supplier.description, :length => 40) %></span>
                 </div>
                 <span class="location">
-                    <%= supplier.city.city_name %>, <%= supplier.city.state %>
+                    <%= supplier.city.city_name %>, <%= supplier.city.state.name %>
                 </span>
             </span>
         <% end %>

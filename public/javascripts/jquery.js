@@ -1276,7 +1276,7 @@ jQuery.support = (function() {
 	fragment = document.createDocumentFragment();
 	fragment.appendChild( div.firstChild );
 
-	// WebKit doesn't clone checked state correctly in fragments
+	// WebKit doesn't clone checked states correctly in fragments
 	support.checkClone = fragment.cloneNode( true ).cloneNode( true ).lastChild.checked;
 
 	div.innerHTML = "";
@@ -5892,7 +5892,7 @@ function cloneFixAttributes( src, dest ) {
 		dest.outerHTML = src.outerHTML;
 
 	} else if ( nodeName === "input" && (src.type === "checkbox" || src.type === "radio") ) {
-		// IE6-8 fails to persist the checked state of a cloned checkbox
+		// IE6-8 fails to persist the checked states of a cloned checkbox
 		// or radio button. Worse, IE6-7 fail to give the cloned element
 		// a checked appearance if the defaultChecked value isn't also set
 		if ( src.checked ) {
@@ -5906,7 +5906,7 @@ function cloneFixAttributes( src, dest ) {
 		}
 
 	// IE6-8 fails to return the selected option to the default selected
-	// state when cloning options
+	// states when cloning options
 	} else if ( nodeName === "option" ) {
 		dest.selected = src.defaultSelected;
 
@@ -5939,7 +5939,7 @@ jQuery.buildFragment = function( args, nodes, scripts ) {
 	}
 
 	// Only cache "small" (1/2 KB) HTML strings that are associated with the main document
-	// Cloning options loses the selected state, so don't cache them
+	// Cloning options loses the selected states, so don't cache them
 	// IE 6 doesn't like it when you put <object> or <embed> elements in a fragment
 	// Also, WebKit does not clone 'checked' attributes on cloneNode, so don't cache
 	if ( args.length === 1 && typeof args[0] === "string" && args[0].length < 512 && doc === document &&
@@ -7019,7 +7019,7 @@ jQuery.extend({
 			timeoutTimer,
 			// Cross-domain detection vars
 			parts,
-			// The jqXHR state
+			// The jqXHR states
 			state = 0,
 			// To know if global events are to be dispatched
 			fireGlobals,

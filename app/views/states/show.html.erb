@@ -1,0 +1,43 @@
+<h1>Listing cities in <%= @state.name %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @state.name %>
+</p>
+
+<p>
+  <b>Abbreviation:</b>
+  <%= @state.abbreviation %>
+</p>
+
+
+
+<% if @state.cities.size == 0 %>
+    <p>
+    There are no cities listed for this state.
+    </p>
+<% else %>
+    <table>
+        <tr>
+        <th>City Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        </tr>
+
+        <% @state.cities.each do |city| %>
+          <tr>
+            <td><%= city.city_name %></td>
+            <td><%= link_to 'Show', city %></td>
+            <td><%= link_to 'Edit', edit_city_path(city) %></td>
+            <td><%= link_to 'Destroy', city, :confirm => 'Are you sure?', :method => :delete %></td>
+          </tr>
+        <% end %>
+    </table>
+<% end %>
+
+
+<%= link_to 'Edit', edit_state_path(@state) %> |
+<%= link_to 'Back', states_path %>
