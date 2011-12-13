@@ -24,7 +24,7 @@ class SuppliersController < ApplicationController
   end
   
   def about
-    #needed a quick place to put a landing page
+    @specialties = Specialty.all
   end
 
 

@@ -13,3 +13,13 @@
 	<p>Add your store to the directory. Create a profile and upload images.  Attract more customers and build your business. </p>
 	<%= link_to 'Create your listing', new_supplier_path, :class=>"button" %>
 </div>
+
+<div id="clear"></div>
+
+<div id="about_specialties">
+	<div id="about"><h2>These are the specialties we support.  Don't see one you need? <%= link_to "Let us know", "http://getsatisfaction.com/depotalternative" %>.</div>
+
+	<table id="specialties">
+		<%= render :partial=>"specialties/specialties", :object=>@specialties %>
+	</table>
+</div>

@@ -6,8 +6,7 @@
 		<ul id="nav">
 			<li><%= link_to 'Suppliers', suppliers_path %></li>
 			<li><%= link_to 'How it works', about_path %></li>	
-			<li><%= link_to 'Specialties', specialties_path %></li>
-			<li><%= link_to 'Create your listing', new_supplier_path, :class=>"button" %></li>
+			<li class="no_bg"><%= link_to 'Create your listing', new_supplier_path, :class=>"button" %></li>
 		</ul>
 		<div id="login_user_status">
 			<% if user_signed_in? %>

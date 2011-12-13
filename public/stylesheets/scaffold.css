@@ -32,7 +32,6 @@ h2, h3,h4 {margin: 0; padding: 0; display: inline;}
 
 a { 
 	color: #292929;
-	font-size: 12px;
 	text-decoration: none; 
 }
 a:visited { color: #292929; }
@@ -332,26 +331,48 @@ input[type="submit"], .button {
 	text-align: center;
 }
 
-.logo {float: left;}
+.logo {
+	width: 100%;
+	text-align: center;
+}
 
 ul#nav {
 	border: none;
 	float: left;
 	list-style: none;
-	margin: 40px 0px 0px 20px;
+	margin: 27px 0px 0px 20px;
 	text-align: left;
-	width: 510px;
+	width: 530px;
 }
 
 ul#nav li {
+	background: white;
+	padding: 12px;
 	float: left;
 	list-style: none;
-	margin: 0px 0px 0px 30px;
+	margin: 0px 0px 0px 20px;
+	-webkit-box-shadow: 0 18px 27px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 18px 27px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 18px 27px rgba(0, 0, 0, 0.3);
+	border-top-left-radius: 4px 4px;
+	border-top-left-radius: 4px 4px;
+	border-top-left-radius: 4px 4px;
+	border-top-right-radius: 4px 4px;
+	border-top-right-radius: 4px 4px;
+	border-top-right-radius: 4px 4px;
+}
+
+ul#nav li.no_bg { 
+	background: none;
+	padding: 6px 0 0 0;
+	-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 0 rgba(0, 0, 0, 0.3); 
 }
 
 ul#nav li a {font-size: 14px;}
 
-#login_user_status {float: right; margin-top: 5px;}
+#login_user_status {float: right; margin-top: 37px;}
 
 .supplier_filter { 
 	font-weight: bold;
@@ -429,7 +450,7 @@ div.search a {
 
 #listings li .role {
 	float: left;
-	width: 328px;
+	width: 310px;
 	margin-right: 12px;
 	position: relative;
 	top: -3px;
@@ -667,6 +688,7 @@ ul #specialty{
 
 /*-----About Page-------*/
 #about { margin-bottom: 30px; }
+#about_specialties {margin-top: 50px;}
 
 #about h2 {
 	font-family: Helvetica, sans-serif;
